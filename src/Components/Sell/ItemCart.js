@@ -4,7 +4,6 @@ import { Card, CardHeader, CardBody, Button, Table } from 'reactstrap';
 import { DataContext } from '../../Context/Data';
 
 const ItemCart = ({ match, table, tables, setTables }) => {
-
 	const { cartValue } = useContext(DataContext);
 	const [cart, setCart] = cartValue;
 	const { orderValue } = useContext(DataContext);
@@ -75,7 +74,6 @@ const ItemCart = ({ match, table, tables, setTables }) => {
 			})
 		);
 	};
-
 
 	return (
 		<Card className="cardsinsidecurrent mb-3 shadow bg-white rounded">

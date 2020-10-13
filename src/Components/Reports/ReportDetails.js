@@ -86,12 +86,12 @@ const ReportDetails = ({ match }) => {
 					display: 'none',
 				}}
 			></iframe>
-			<span>
+			{/* <span>
 				<strong>
 					Note : To download and print via mobile please change the orientation
 					to landscape mode.
 				</strong>
-			</span>
+			</span> */}
 
 			<div id="printarea" className="mt-4">
 				{singleReport.map((report) => (
@@ -119,6 +119,9 @@ const ReportDetails = ({ match }) => {
 										<strong>{report.date}</strong>
 									</span>
 									<br />
+									<span>
+										<strong>Order Id : {report.oId}</strong>
+									</span>
 								</div>
 							</CardHeader>
 

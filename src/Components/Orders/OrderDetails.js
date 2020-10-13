@@ -7,7 +7,7 @@ import { Button, Card, CardBody, CardHeader, Table } from 'reactstrap';
 
 const OrderDetails = ({ match }) => {
 	const { orderValue } = useContext(DataContext);
-	const [orders] = orderValue;
+	const [orders, setOrders] = orderValue;
 	const [singleOrder, setSingleOrder] = useState([]);
 
 	const getSingleOrder = () => {

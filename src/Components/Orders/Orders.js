@@ -26,7 +26,12 @@ const Orders = () => {
 	const { tablesValue } = useContext(DataContext);
 	const [tables, setTables] = tablesValue;
 	const { initialvaluefortable } = useContext(DataContext);
+	const [getOrder, setGetOrder] = useState({
+		oId: null,
+	});
+
 	const [modal, setModal] = useState(false);
+
 	const toggle = () => setModal(!modal);
 
 	const addToReport = (oId) => {
@@ -36,9 +41,9 @@ const Orders = () => {
 		setReports([...reports, ...data]);
 	};
 
-	const deleteOrders = (oId) => {
-		setInterval(() => {
-			setOrders(orders.filter((order) => order.oId !== oId));
+	const deleteOrders = () => {
+		setTimeout(() => {
+			setOrders(orders.filter((order) => order.oId !== getOrder.oId));
 		}, 1000);
 	};
 	const deleteAll = () => {
@@ -66,15 +71,20 @@ const Orders = () => {
 			reserved: order.reserved,
 		});
 	};
-
+	const getSingleOrder = (order) => {
+		setGetOrder({
+			oId: order.oId,
+		});
+	};
 	useEffect(() => {
 		console.log(table);
 	}, [table]);
-
 	useEffect(() => {
-		console.log(tables);
-	}, [tables]);
-
+		console.log(orders);
+	}, [orders]);
+	useEffect(() => {
+		console.log(getOrder);
+	}, [getOrder]);
 	return (
 		<Fragment>
 			<div className="flexbetween">
@@ -91,7 +101,9 @@ const Orders = () => {
 								className="ordercard mb-3 shadow bg-white rounded"
 							>
 								<CardHeader className="flexbetween">
-									<span>Orders for {order.tableName}</span>
+									<span>
+										Id : {order.oId} - {order.tableName}
+									</span>
 									<span>{order.date}</span>
 								</CardHeader>
 								<CardBody>
@@ -119,8 +131,9 @@ const Orders = () => {
 										size="sm"
 										className="btn btn-secondary"
 										onClick={() => {
-											toggle();
 											getTable(order);
+											getSingleOrder(order);
+											toggle();
 										}}
 									>
 										Checkout
@@ -134,22 +147,26 @@ const Orders = () => {
 										<Container>Are you sure you want to checkout</Container>
 									</ModalBody>
 									<ModalFooter>
-										<Link to={`/orders/${order.oId}`}>
+										<Link to={`/orders/${getOrder.oId}`}>
 											<Button
 												size="sm"
 												color="primary"
 												onClick={() => {
 													reservedCase();
-													addToReport(order.oId);
-													deleteOrders(order.oId);
-													setTable(initialvaluefortable);
+													addToReport(getOrder.oId);
 													toggle();
+													setTable(initialvaluefortable);
+													deleteOrders();
 												}}
 											>
 												Yes
 											</Button>
 										</Link>
-										<Button size="sm" color="secondary" onClick={toggle}>
+										<Button
+											size="sm"
+											color="secondary"
+											onClick={() => toggle()}
+										>
 											Cancel
 										</Button>
 									</ModalFooter>

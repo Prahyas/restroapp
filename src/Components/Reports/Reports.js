@@ -5,9 +5,13 @@ import { Link } from 'react-router-dom';
 
 const Reports = () => {
 	const { reportValue } = useContext(DataContext);
-	const [reports] = reportValue;
+	const [reports, setReports] = reportValue;
 	const copyReports = [...reports];
 	const reversedReports = copyReports.reverse();
+
+	const deleteAll = () => {
+		setReports([]);
+	};
 
 	useEffect(() => {
 		console.log(reports);
@@ -17,7 +21,7 @@ const Reports = () => {
 		<Fragment>
 			<div className="flexbetween">
 				<h3 className="mb-1">Reports</h3>
-				{/* <Button onClick={() => deleteAll()}>Delete all</Button> */}
+				<Button onClick={() => deleteAll()}>Delete all</Button>
 			</div>
 			<hr />
 			<Container>

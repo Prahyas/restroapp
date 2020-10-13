@@ -60,10 +60,6 @@ const Sell = ({ match }) => {
 		toggle();
 	};
 
-	// const selectedTable = (table) => {
-	// 	console.log(table.id);
-	// };
-
 	return (
 		<Fragment>
 			<div className="flexbetween">
@@ -135,7 +131,6 @@ const Sell = ({ match }) => {
 												tables={tables}
 												setTables={setTables}
 												toggleTab={toggleTab}
-												// selectedTable={selectedTable}
 												table={table}
 												setTable={setTable}
 											/>
@@ -151,7 +146,7 @@ const Sell = ({ match }) => {
 					</Row>
 				</TabPane>
 				<TabPane tabId="2">
-					<div className="flexbetween mt-4">
+					<div className="flexarround mt-4">
 						<MenuCard match={match} />
 						<ItemCart
 							match={match}
