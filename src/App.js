@@ -37,7 +37,7 @@ const App = () => {
 
 					<div className="scrollbuttons">
 						<a href="#top">
-							<i className="fa fa-arrow-circle-up"></i>
+							<i className=" tothetop fa fa-arrow-circle-up"></i>
 						</a>
 					</div>
 				</Router>

@@ -141,10 +141,17 @@
 	font-size: 15px;
 }
 
-@media (max-width: 768px) {
-	* {
-		font-size: 9px;
+@media print {
+	h3,
+	.downloadprinticons,
+	.note,
+	.tothetop,
+	.sidebar {
+		display: none;
 	}
+}
+
+@media (max-width: 768px) {
 	.sidebar {
 		margin-left: -250px;
 	}

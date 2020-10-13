@@ -52,14 +52,17 @@ const ReportDetails = ({ match }) => {
 		getSingleReport();
 	}, []);
 
+	// const print = () => {
+	// 	let content = document.getElementById('printarea');
+	// 	let pri = document.getElementById('ifmcontentstoprint').contentWindow;
+	// 	pri.document.open();
+	// 	pri.document.write(content.innerHTML);
+	// 	pri.document.close();
+	// 	pri.focus();
+	// 	pri.print();
+	// };
 	const print = () => {
-		let content = document.getElementById('printarea');
-		let pri = document.getElementById('ifmcontentstoprint').contentWindow;
-		pri.document.open();
-		pri.document.write(content.innerHTML);
-		pri.document.close();
-		pri.focus();
-		pri.print();
+		window.print();
 	};
 
 	return (
@@ -76,7 +79,7 @@ const ReportDetails = ({ match }) => {
 				</div>
 			</div>
 			<hr />
-			<iframe
+			{/* <iframe
 				title="reportiframe"
 				id="ifmcontentstoprint"
 				style={{
@@ -85,13 +88,14 @@ const ReportDetails = ({ match }) => {
 					position: 'absolute',
 					display: 'none',
 				}}
-			></iframe>
-			{/* <span>
+			></iframe> */}
+			<span className="note">
 				<strong>
 					Note : To download and print via mobile please change the orientation
-					to landscape mode.
+					to landscape mode and make sure that you check on view as desktop mode
+					on the browser.
 				</strong>
-			</span> */}
+			</span>
 
 			<div id="printarea" className="mt-4">
 				{singleReport.map((report) => (
@@ -102,7 +106,7 @@ const ReportDetails = ({ match }) => {
 						<div id="capture">
 							<CardHeader className="flexbetween">
 								<div>
-									<span>
+									<span className="abcd">
 										<strong>Restaurant Management System</strong>
 									</span>
 									<br />
