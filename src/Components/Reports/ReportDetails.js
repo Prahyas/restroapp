@@ -98,11 +98,12 @@ const ReportDetails = ({ match }) => {
 			<div className="flexbetween">
 				<h3 className="mb-1">Invoice </h3>
 				<div className="downloadprinticons">
-					<Button size="sm" className="mr-2" onClick={() => pdf()}>
+					{/* <Button size="sm" className="mr-2" onClick={() => pdf()}>
 						<i className="fa fa-download" aria-hidden="true"></i>
-					</Button>
+					</Button> */}
 					<Button size="sm" onClick={() => print()}>
-						<i className="fas fa-print"></i>
+						<i className="mr-2 fas fa-print"></i>
+						<span>Print</span>
 					</Button>
 				</div>
 			</div>
@@ -158,6 +159,13 @@ const ReportDetails = ({ match }) => {
 									<br />
 									<span>
 										<strong>Order Id : {report.oId}</strong>
+									</span>
+									<br />
+									<span>
+										<strong>
+											{' '}
+											Cashier: {settings.length === 0 ? 'admin' : `${userName}`}
+										</strong>
 									</span>
 								</div>
 							</CardHeader>
