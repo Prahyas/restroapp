@@ -4,10 +4,9 @@
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;
 	scroll-behavior: smooth;
-}
-body {
 	overflow-x: hidden;
 }
+
 .loginbody {
 	background: #343a40;
 	color: #fff;
@@ -97,7 +96,7 @@ body {
 	font-weight: 700;
 }
 ::-webkit-scrollbar {
-	width: 5px;
+	display: none;
 }
 ::-webkit-scrollbar-thumb {
 	background: #343a40;
@@ -194,7 +193,7 @@ body {
 	}
 
 	::-webkit-scrollbar {
-		width: 3px;
+		display: none;
 	}
 	.fontsizefortables {
 		font-size: 11px;
