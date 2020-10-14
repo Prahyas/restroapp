@@ -38,7 +38,6 @@ const OrderDetails = ({ match }) => {
 	const grandTotal = (+addedServiceCharge + +serviceCharge + +addedVat).toFixed(
 		2
 	);
-	console.log(grandTotal);
 
 	const getSingleOrder = () => {
 		if (match.params.oId) {
@@ -93,7 +92,6 @@ const OrderDetails = ({ match }) => {
 	const print = () => {
 		window.print();
 	};
-	console.log(serviceCharge);
 
 	return (
 		<Fragment>
@@ -140,7 +138,7 @@ const OrderDetails = ({ match }) => {
 										<strong>
 											{' '}
 											{settings.length === 0
-												? 'Restro App'
+												? 'Restaurant App'
 												: `${restaurantName}`}
 										</strong>
 									</span>

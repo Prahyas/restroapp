@@ -4,6 +4,7 @@
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;
 	scroll-behavior: smooth;
+	overflow: hidden;
 }
 .loginbody {
 	background: #343a40;
@@ -156,7 +157,9 @@
 
 @media (max-width: 768px) {
 	.sidebar {
-		margin-left: -250px;
+		min-width: 375px;
+		max-width: 375px;
+		margin-left: -375px;
 	}
 	.sidebar.toggled {
 		margin-left: 0;
@@ -190,7 +193,7 @@
 		width: 3px;
 	}
 	.fontsizefortables {
-		font-size: 14px;
+		font-size: 11px;
 	}
 }
 /* @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {

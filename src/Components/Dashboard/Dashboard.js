@@ -17,8 +17,8 @@ const Dashboard = () => {
 			<hr />
 
 			<div className="flexarround">
-				<Link to="/reports">
-					<div className="cardsinsidedashboard">
+				<div className="cardsinsidedashboard">
+					<Link to="/reports">
 						<Card body inverse color="primary" className="mb-3">
 							<CardTitle>
 								{' '}
@@ -27,10 +27,10 @@ const Dashboard = () => {
 
 							<h5 className="text-center">Total Sales</h5>
 						</Card>
-					</div>
-				</Link>
-				<Link to="/orders">
-					<div className="cardsinsidedashboard">
+					</Link>
+				</div>
+				<div className="cardsinsidedashboard">
+					<Link to="/orders">
 						<Card body inverse color="info" className="mb-3">
 							<CardTitle>
 								{' '}
@@ -39,8 +39,8 @@ const Dashboard = () => {
 
 							<h5 className="text-center">Active Orders</h5>
 						</Card>
-					</div>
-				</Link>
+					</Link>
+				</div>
 				<div className="cardsinsidedashboard">
 					<Link to="/menu">
 						<Card body inverse color="danger" className="mb-3">

@@ -67,8 +67,8 @@ const MenuCard = () => {
 
 							<div>
 								<Link to="/menu">
-									<Button size="sm" color="primary">
-										Menu page
+									<Button className="button" size="sm" color="primary">
+										<span>Menu page</span>
 									</Button>
 								</Link>
 							</div>

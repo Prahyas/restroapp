@@ -8,8 +8,36 @@ import { Button, Card, CardBody, CardHeader, Table } from 'reactstrap';
 const ReportDetails = ({ match }) => {
 	const { reportValue } = useContext(DataContext);
 	const [reports] = reportValue;
-
 	const [singleReport, setSingleReport] = useState([]);
+	const { settingValue } = useContext(DataContext);
+	const [settings] = settingValue;
+
+	const userName = settings.map((x) => {
+		return x.userName;
+	});
+	const restaurantName = settings.map((x) => {
+		return x.restaurantName;
+	});
+	const address = settings.map((x) => {
+		return x.address;
+	});
+	const contactNumber = settings.map((x) => {
+		return x.contactNumber;
+	});
+	const serviceCharge = settings.map((x) => {
+		return x.serviceCharge;
+	});
+	const vat = settings.map((x) => {
+		return x.vat;
+	});
+	const totalPrice = singleReport.map((x) => {
+		return x.totalPrice;
+	});
+	const addedServiceCharge = (totalPrice * serviceCharge) / 100;
+	const addedVat = (totalPrice * vat) / 100;
+	const grandTotal = (+addedServiceCharge + +serviceCharge + +addedVat).toFixed(
+		2
+	);
 
 	const getSingleReport = () => {
 		if (match.params.oId) {
@@ -106,13 +134,18 @@ const ReportDetails = ({ match }) => {
 						<div id="capture">
 							<CardHeader className="flexbetween">
 								<div>
-									<span className="abcd">
-										<strong>Restaurant Management System</strong>
+									<span>
+										<strong>
+											{' '}
+											{settings.length === 0
+												? 'Restaurant App'
+												: `${restaurantName}`}
+										</strong>
 									</span>
 									<br />
-									<span>Chabahil,Kathmandu</span>
+									<span>{address}</span>
 									<br />
-									<span>987654321</span>
+									<span>{contactNumber}</span>
 								</div>
 								<div>
 									<span>
@@ -165,6 +198,27 @@ const ReportDetails = ({ match }) => {
 												<td></td>
 											</tr>
 										))}
+										<tr className={serviceCharge.length > 0 ? '' : 'none'}>
+											<td colSpan={3}>Service Charge ({serviceCharge}%)</td>
+											<td>{addedServiceCharge}</td>
+										</tr>
+
+										<tr className={vat.length > 0 ? '' : 'none'}>
+											<td colSpan={3}>Vat ({vat}%)</td>
+											<td>{addedVat}</td>
+										</tr>
+										<tr>
+											<td colSpan={3}>
+												<strong>Grand Total</strong>{' '}
+											</td>
+											<td>
+												<strong>
+													{serviceCharge.length > 0 && vat.length > 0
+														? grandTotal
+														: totalPrice}
+												</strong>
+											</td>
+										</tr>
 									</tfoot>
 								</Table>
 							</CardBody>

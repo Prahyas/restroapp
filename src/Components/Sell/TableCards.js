@@ -50,7 +50,7 @@ const TableCards = ({
 	return (
 		<Fragment>
 			<div key={tId} className="cardsinsidetables">
-				<Card className=" mb-3 shadow bg-white rounded">
+				<Card className="mb-3 shadow bg-white rounded">
 					<CardHeader>
 						{' '}
 						<div className="flexbetween">
