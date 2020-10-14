@@ -1,56 +1,192 @@
-import React from 'react';
-import { Table, Button } from 'reactstrap';
+import React, { Fragment } from 'react';
+import { Button, Card, CardHeader, CardBody, CardFooter } from 'reactstrap';
 
 const SettingsDetail = ({ settings, deleteSetting, editRow }) => {
 	return (
-		<div>
+		<Fragment>
 			{settings.length > 0 ? (
-				<Table className="fontsizefortables" size="sm" responsive>
-					<thead>
-						<tr>
-							<th>User name</th>
-							<th>Restaurant name</th>
-							<th>Address</th>
-							<th>Contact</th>
-							<th>Service Charge</th>
-							<th>VAT</th>
-							<th>Actions</th>
-						</tr>
-					</thead>
-					<tbody>
-						{settings.map((setting) => (
-							<tr key={setting.uId}>
-								<td>{setting.userName}</td>
-								<td>{setting.restaurantName}</td>
-								<td>{setting.address}</td>
-								<td>{setting.contactNumber}</td>
-								<td>{setting.serviceCharge}</td>
-								<td>{setting.vat}</td>
-								<td>
-									<Button
-										size="sm"
-										color="warning"
-										onClick={() => editRow(setting)}
-										className="mr-2"
-									>
-										Edit
-									</Button>
-									<Button
-										size="sm"
-										color="danger"
-										onClick={() => deleteSetting(setting.uId)}
-									>
-										X
-									</Button>
-								</td>
-							</tr>
-						))}
-					</tbody>
-				</Table>
+				<Fragment>
+					{settings.map((setting) => (
+						<Card key={setting.uId} className="mb-3 shadow bg-white rounded">
+							<CardHeader>
+								<div className="flexbetween">
+									<div>
+										<h4>Details</h4>
+									</div>
+									<div>
+										<Button
+											size="sm"
+											color="danger"
+											onClick={() => deleteSetting(setting.uId)}
+										>
+											<i className="fas fa-times"></i>
+										</Button>
+									</div>
+								</div>
+							</CardHeader>
+							<CardBody>
+								<div className="flexbetween">
+									<span>
+										<strong> User Name</strong>
+									</span>
+
+									<span>
+										{' '}
+										<strong> {setting.userName}</strong>
+									</span>
+								</div>
+								<hr />
+
+								<div className="flexbetween">
+									<span>
+										<strong>Restaurant</strong>
+									</span>
+
+									<span>
+										{' '}
+										<strong> {setting.restaurantName}</strong>
+									</span>
+								</div>
+								<hr />
+
+								<div className="flexbetween">
+									<span>
+										<strong>Address</strong>
+									</span>
+
+									<span>
+										{' '}
+										<strong> {setting.address}</strong>
+									</span>
+								</div>
+								<hr />
+
+								<div className="flexbetween">
+									<span>
+										<strong> Contact</strong>
+									</span>
+
+									<span>
+										{' '}
+										<strong> {setting.contactNumber}</strong>
+									</span>
+								</div>
+								<hr />
+
+								<div className="flexbetween">
+									<span>
+										<strong>Service Charge</strong>
+									</span>
+
+									<span>
+										{' '}
+										<strong> {setting.serviceCharge}</strong>
+									</span>
+								</div>
+								<hr />
+
+								<div className="flexbetween">
+									<span>
+										<strong>VAT</strong>
+									</span>
+
+									<span>
+										{' '}
+										<strong> {setting.vat}</strong>
+									</span>
+								</div>
+							</CardBody>
+							<CardFooter>
+								<Button onClick={() => editRow(setting)}>Edit</Button>
+							</CardFooter>
+						</Card>
+					))}
+				</Fragment>
 			) : (
-				'Please add the information about your restaurant with the add button above'
+				<Fragment>
+					<Card className="mb-3 shadow bg-white rounded">
+						<CardHeader>
+							<h4>Details</h4>
+						</CardHeader>
+						<CardBody>
+							<div className="flexbetween">
+								<span>
+									<strong> User Name</strong>
+								</span>
+
+								<span>
+									{' '}
+									<strong>Not Specified</strong>
+								</span>
+							</div>
+							<hr />
+
+							<div className="flexbetween">
+								<span>
+									<strong>Restaurant</strong>
+								</span>
+
+								<span>
+									{' '}
+									<strong>Not Specified</strong>
+								</span>
+							</div>
+							<hr />
+
+							<div className="flexbetween">
+								<span>
+									<strong>Address</strong>
+								</span>
+
+								<span>
+									{' '}
+									<strong> Not Specified</strong>
+								</span>
+							</div>
+							<hr />
+
+							<div className="flexbetween">
+								<span>
+									<strong> Contact</strong>
+								</span>
+
+								<span>
+									{' '}
+									<strong>Not Specified</strong>
+								</span>
+							</div>
+							<hr />
+
+							<div className="flexbetween">
+								<span>
+									<strong>Service Charge</strong>
+								</span>
+
+								<span>
+									{' '}
+									<strong> Not Specified</strong>
+								</span>
+							</div>
+							<hr />
+
+							<div className="flexbetween">
+								<span>
+									<strong>VAT</strong>
+								</span>
+
+								<span>
+									{' '}
+									<strong> Not Specified</strong>
+								</span>
+							</div>
+						</CardBody>
+						<CardFooter>
+							Please add the details using the add button above
+						</CardFooter>
+					</Card>
+				</Fragment>
 			)}
-		</div>
+		</Fragment>
 	);
 };
 

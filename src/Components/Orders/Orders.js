@@ -179,7 +179,7 @@ const Orders = () => {
 					<Fragment>
 						No orders yet
 						<div className="mt-2">
-							All checkout orders are added to reports from here.
+							All the checked out orders are added to reports from here.
 						</div>
 					</Fragment>
 				)}

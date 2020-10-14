@@ -118,13 +118,13 @@ const ReportDetails = ({ match }) => {
 					display: 'none',
 				}}
 			></iframe> */}
-			<span className="note">
+			{/* <span className="note">
 				<strong>
 					Note : To download and print via mobile please change the orientation
 					to landscape mode and make sure that you check on view as desktop mode
 					on the browser.
 				</strong>
-			</span>
+			</span> */}
 
 			<div id="printarea" className="mt-4">
 				{singleReport.map((report) => (
@@ -164,7 +164,8 @@ const ReportDetails = ({ match }) => {
 									<span>
 										<strong>
 											{' '}
-											Cashier: {settings.length === 0 ? 'admin' : `${userName}`}
+											Cashier :{' '}
+											{settings.length === 0 ? 'admin' : `${userName}`}
 										</strong>
 									</span>
 								</div>

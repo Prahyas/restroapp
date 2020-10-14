@@ -9,6 +9,12 @@ const ItemCart = ({ match, table, tables, setTables }) => {
 	const { orderValue } = useContext(DataContext);
 	const [orders, setOrders] = orderValue;
 
+	const check = cart.map((x) => {
+		return x.quantity;
+	});
+	console.log(check);
+	console.log(cart);
+
 	const deleteFromCart = (mId) => {
 		setCart(cart.filter((item) => item.mId !== mId));
 	};
@@ -121,7 +127,7 @@ const ItemCart = ({ match, table, tables, setTables }) => {
 											<span>+</span>
 										</Button>
 									</td>
-									<td>{item.totalPrice}</td>
+									<td>{item.totalPrice ? item.totalPrice : 0}</td>
 									<td>
 										<Button
 											className="itemcarttablebutton"
@@ -141,6 +147,7 @@ const ItemCart = ({ match, table, tables, setTables }) => {
 					<Button
 						size="sm"
 						className="mt-2"
+						disabled={check.includes(0)}
 						onClick={() => {
 							addToOrders();
 							reservedCase();
