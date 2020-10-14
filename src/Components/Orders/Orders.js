@@ -107,7 +107,7 @@ const Orders = () => {
 									<span>{order.date}</span>
 								</CardHeader>
 								<CardBody>
-									<Table responsive>
+									<Table className="fontsizefortables" size="sm" responsive>
 										<thead>
 											<tr>
 												<th>Item Name</th>
@@ -127,6 +127,7 @@ const Orders = () => {
 									</Table>
 								</CardBody>
 								<CardFooter>
+									<Button size="sm">Edit Order</Button>
 									<Button
 										size="sm"
 										className="btn btn-secondary"

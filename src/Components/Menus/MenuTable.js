@@ -5,7 +5,7 @@ const MenuTable = ({ menus, deleteMenu, editRow }) => {
 	return (
 		<div>
 			{menus.length > 0 ? (
-				<Table size="sm" responsive>
+				<Table className="fontsizefortables" size="sm" responsive>
 					<thead>
 						<tr>
 							<th>ID</th>

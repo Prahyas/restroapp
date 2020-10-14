@@ -76,7 +76,7 @@ const ItemCart = ({ match, table, tables, setTables }) => {
 	};
 
 	return (
-		<Card className="cardsinsidecurrent mb-3 shadow bg-white rounded">
+		<Card className="mb-3 shadow bg-white rounded">
 			<CardHeader>
 				{' '}
 				<div className="flexbetween">
@@ -91,7 +91,7 @@ const ItemCart = ({ match, table, tables, setTables }) => {
 				<CardBody>No Orders</CardBody>
 			) : (
 				<CardBody>
-					<Table size="sm" responsive>
+					<Table className="fontsizefortables" size="sm" responsive>
 						<thead>
 							<tr>
 								<th>Item Name</th>
@@ -107,7 +107,7 @@ const ItemCart = ({ match, table, tables, setTables }) => {
 									<td>
 										<Button
 											size="sm"
-											className="mr-2"
+											className="itemcarttablebutton mr-2"
 											onClick={() => decrease(item.mId)}
 										>
 											<span>-</span>
@@ -115,7 +115,7 @@ const ItemCart = ({ match, table, tables, setTables }) => {
 										<span>{item.quantity}</span>
 										<Button
 											size="sm"
-											className="ml-2"
+											className="itemcarttablebutton ml-2"
 											onClick={() => increase(item.mId)}
 										>
 											<span>+</span>
@@ -124,6 +124,7 @@ const ItemCart = ({ match, table, tables, setTables }) => {
 									<td>{item.totalPrice}</td>
 									<td>
 										<Button
+											className="itemcarttablebutton"
 											size="sm"
 											color="danger"
 											onClick={() => deleteFromCart(item.mId)}

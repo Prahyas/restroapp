@@ -11,6 +11,7 @@ import Orders from './Components/Orders/Orders';
 import Reports from './Components/Reports/Reports';
 import ReportDetails from './Components/Reports/ReportDetails';
 import OrderDetails from './Components/Orders/OrderDetails';
+import Settings from './Components/Settings/Settings';
 
 const App = () => {
 	return (
@@ -31,6 +32,7 @@ const App = () => {
 								<Route path="/orders/:oId" component={OrderDetails} />
 								<Route exact path="/reports" component={Reports} />
 								<Route path="/reports/:oId" component={ReportDetails} />
+								<Route path="/settings" component={Settings} />
 							</div>
 						</div>
 					</div>

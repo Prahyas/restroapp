@@ -130,7 +130,7 @@ const ReportDetails = ({ match }) => {
 							</CardHeader>
 
 							<CardBody>
-								<Table size="sm" responsive>
+								<Table className="fontsizefortables" size="sm" responsive>
 									<thead>
 										<tr>
 											<th>Item Name</th>

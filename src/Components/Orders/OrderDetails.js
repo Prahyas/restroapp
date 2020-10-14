@@ -9,6 +9,36 @@ const OrderDetails = ({ match }) => {
 	const { orderValue } = useContext(DataContext);
 	const [orders, setOrders] = orderValue;
 	const [singleOrder, setSingleOrder] = useState([]);
+	const { settingValue } = useContext(DataContext);
+	const [settings] = settingValue;
+
+	const userName = settings.map((x) => {
+		return x.userName;
+	});
+	const restaurantName = settings.map((x) => {
+		return x.restaurantName;
+	});
+	const address = settings.map((x) => {
+		return x.address;
+	});
+	const contactNumber = settings.map((x) => {
+		return x.contactNumber;
+	});
+	const serviceCharge = settings.map((x) => {
+		return x.serviceCharge;
+	});
+	const vat = settings.map((x) => {
+		return x.vat;
+	});
+	const totalPrice = singleOrder.map((x) => {
+		return x.totalPrice;
+	});
+	const addedServiceCharge = (totalPrice * serviceCharge) / 100;
+	const addedVat = (totalPrice * vat) / 100;
+	const grandTotal = (+addedServiceCharge + +serviceCharge + +addedVat).toFixed(
+		2
+	);
+	console.log(grandTotal);
 
 	const getSingleOrder = () => {
 		if (match.params.oId) {
@@ -63,6 +93,7 @@ const OrderDetails = ({ match }) => {
 	const print = () => {
 		window.print();
 	};
+	console.log(serviceCharge);
 
 	return (
 		<Fragment>
@@ -106,12 +137,17 @@ const OrderDetails = ({ match }) => {
 							<CardHeader className="flexbetween">
 								<div>
 									<span>
-										<strong>Restaurant Management System</strong>
+										<strong>
+											{' '}
+											{settings.length === 0
+												? 'Restro App'
+												: `${restaurantName}`}
+										</strong>
 									</span>
 									<br />
-									<span>Chabahil,Kathmandu</span>
+									<span>{address}</span>
 									<br />
-									<span>987654321</span>
+									<span>{contactNumber}</span>
 								</div>
 								<div>
 									<span>
@@ -122,11 +158,14 @@ const OrderDetails = ({ match }) => {
 										<strong>{order.date}</strong>
 									</span>
 									<br />
+									<span>
+										<strong>Order Id : {order.oId}</strong>
+									</span>
 								</div>
 							</CardHeader>
 
 							<CardBody>
-								<Table size="sm" responsive>
+								<Table className="fontsizefortables" size="sm" responsive>
 									<thead>
 										<tr>
 											<th>Item Name</th>
@@ -158,11 +197,32 @@ const OrderDetails = ({ match }) => {
 												<td>
 													<strong>{x.totalPrice}</strong>
 												</td>
-												<td></td>
 											</tr>
 										))}
+										<tr className={serviceCharge.length > 0 ? '' : 'none'}>
+											<td colSpan={3}>Service Charge ({serviceCharge}%)</td>
+											<td>{addedServiceCharge}</td>
+										</tr>
+
+										<tr className={vat.length > 0 ? '' : 'none'}>
+											<td colSpan={3}>Vat ({vat}%)</td>
+											<td>{addedVat}</td>
+										</tr>
+										<tr>
+											<td colSpan={3}>
+												<strong>Grand Total</strong>{' '}
+											</td>
+											<td>
+												<strong>
+													{serviceCharge.length > 0 && vat.length > 0
+														? grandTotal
+														: totalPrice}
+												</strong>
+											</td>
+										</tr>
 									</tfoot>
 								</Table>
+								{/* <h3>{serviceCharge.length > 0 ? 'none' : 'abc'}</h3> */}
 							</CardBody>
 						</div>
 					</Card>

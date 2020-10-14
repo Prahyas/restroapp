@@ -66,6 +66,11 @@ const Sidebar = () => {
 							<i className="fa fa-file"></i> Reports
 						</Link>
 					</li>
+					<li>
+						<Link to="/settings" onClick={() => setToggle(!toggle)}>
+							<i class="fas fa-cog"></i> Settings
+						</Link>
+					</li>
 				</ul>
 			</div>
 		</Fragment>

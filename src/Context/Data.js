@@ -3,7 +3,6 @@ import React, { useState, createContext, useEffect } from 'react';
 export const DataContext = createContext();
 
 export const DataProvider = (props) => {
-	
 	const tableData = [];
 	const [tables, setTables] = useState(tableData);
 	const initialFormState = {
@@ -11,19 +10,21 @@ export const DataProvider = (props) => {
 		tableName: '',
 		reserved: false,
 	};
+
 	const [table, setTable] = useState(initialFormState);
 	const [menus, setMenus] = useState([]);
 	const [toggle, setToggle] = useState(true);
 	const [cart, setCart] = useState([]);
 	const [orders, setOrders] = useState([]);
 	const [reports, setReports] = useState([]);
+	const [settings, setSettings] = useState([]);
 
 	useEffect(() => {
 		getLocal();
 	}, []);
 	useEffect(() => {
 		saveLocal();
-	}, [tables, menus, orders, reports]);
+	}, [tables, menus, orders, reports, settings]);
 
 	const saveLocal = () => {
 		localStorage.setItem('tables', JSON.stringify(tables));
@@ -31,6 +32,7 @@ export const DataProvider = (props) => {
 		// localStorage.setItem('cart', JSON.stringify(cart));
 		localStorage.setItem('orders', JSON.stringify(orders));
 		localStorage.setItem('reports', JSON.stringify(reports));
+		localStorage.setItem('settings', JSON.stringify(settings));
 	};
 	const getLocal = () => {
 		if (localStorage.getItem('tables') === null) {
@@ -63,6 +65,12 @@ export const DataProvider = (props) => {
 			let localDb = JSON.parse(localStorage.getItem('reports'));
 			setReports(localDb);
 		}
+		if (localStorage.getItem('settings') === null) {
+			localStorage.setItem('settings', JSON.stringify([]));
+		} else {
+			let localDb = JSON.parse(localStorage.getItem('settings'));
+			setSettings(localDb);
+		}
 	};
 
 	return (
@@ -76,6 +84,7 @@ export const DataProvider = (props) => {
 				cartValue: [cart, setCart],
 				orderValue: [orders, setOrders],
 				reportValue: [reports, setReports],
+				settingValue: [settings, setSettings],
 			}}
 		>
 			{props.children}

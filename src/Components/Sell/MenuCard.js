@@ -25,14 +25,14 @@ const MenuCard = () => {
 
 	return (
 		<div>
-			<Card className="cardsinsidecurrent mb-3 shadow bg-white rounded">
+			<Card className="mb-3 shadow bg-white rounded">
 				<CardHeader>
 					{' '}
 					<h5 className="classheaderspan">Select Items</h5>
 				</CardHeader>
 				<CardBody>
 					{menus.length > 0 ? (
-						<Table size="sm" responsive>
+						<Table className="fontsizefortables" size="sm" responsive>
 							<thead>
 								<tr>
 									<th>Item Name</th>

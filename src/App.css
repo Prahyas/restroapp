@@ -140,6 +140,9 @@
 .downloadprinticons i {
 	font-size: 15px;
 }
+.none {
+	display: none;
+}
 
 @media print {
 	h3,
@@ -157,6 +160,15 @@
 	}
 	.sidebar.toggled {
 		margin-left: 0;
+	}
+	.content {
+		overflow: hidden;
+	}
+	.appname span {
+		font-size: 18px;
+	}
+	.dropdown span {
+		display: none;
 	}
 	.scrollbuttons {
 		position: fixed;
@@ -177,8 +189,8 @@
 	::-webkit-scrollbar {
 		width: 3px;
 	}
-	.cardsinsidecurrent {
-		width: 35rem;
+	.fontsizefortables {
+		font-size: 14px;
 	}
 }
 /* @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {

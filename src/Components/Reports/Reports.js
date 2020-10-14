@@ -26,7 +26,7 @@ const Reports = () => {
 			<hr />
 			<Container>
 				{reversedReports.length > 0 ? (
-					<Table siza="sm" responsive>
+					<Table className="fontsizefortables" size="sm" responsive>
 						<thead>
 							<tr>
 								<th>ID</th>
