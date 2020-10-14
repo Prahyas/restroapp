@@ -4,7 +4,9 @@
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;
 	scroll-behavior: smooth;
-	overflow: hidden;
+}
+body {
+	overflow-x: hidden;
 }
 .loginbody {
 	background: #343a40;
@@ -147,6 +149,7 @@
 
 @media print {
 	h3,
+	hr,
 	.downloadprinticons,
 	.note,
 	.tothetop,

@@ -18,6 +18,7 @@ const Navbar = () => {
 		<Fragment>
 			<nav className="navbar navbar-expand navbar-dark bg-dark">
 				<Button
+					size="sm"
 					className="sidebar-toggle text-light mr-3"
 					onClick={() => setToggle(!toggle)}
 				>
