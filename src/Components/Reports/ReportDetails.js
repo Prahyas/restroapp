@@ -35,9 +35,11 @@ const ReportDetails = ({ match }) => {
 	});
 	const addedServiceCharge = (totalPrice * serviceCharge) / 100;
 	const addedVat = (totalPrice * vat) / 100;
-	const grandTotal = (+addedServiceCharge + +serviceCharge + +addedVat).toFixed(
-		2
-	);
+	const grandTotal = (
+		parseFloat(totalPrice) +
+		parseFloat(addedServiceCharge) +
+		parseFloat(addedVat)
+	).toFixed(2);
 
 	const getSingleReport = () => {
 		if (match.params.oId) {

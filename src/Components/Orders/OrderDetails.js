@@ -35,10 +35,12 @@ const OrderDetails = ({ match }) => {
 	});
 	const addedServiceCharge = (totalPrice * serviceCharge) / 100;
 	const addedVat = (totalPrice * vat) / 100;
-	const grandTotal = (+addedServiceCharge + +serviceCharge + +addedVat).toFixed(
-		2
-	);
-
+	const grandTotal = (
+		parseFloat(totalPrice) +
+		parseFloat(addedServiceCharge) +
+		parseFloat(addedVat)
+	).toFixed(2);
+	console.log(grandTotal);
 	const getSingleOrder = () => {
 		if (match.params.oId) {
 			const data = orders.filter((item) => item.oId == match.params.oId);
