@@ -22,7 +22,6 @@ const App = () => {
 				<BrowserRouter>
 					<Navbar />
 					<Switch>
-
 								<Route exact path="/" component={Login} />
 					<div className="d-flex align-items-stretch">
 						<Sidebar />
