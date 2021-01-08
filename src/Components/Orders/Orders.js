@@ -127,7 +127,9 @@ const Orders = () => {
 									</Table>
 								</CardBody>
 								<CardFooter>
-									<Button size="sm">Edit Order</Button>
+									<Link to="/sell/:tId/:tableName">
+										<Button size="sm">Edit Order</Button>
+									</Link>
 									<Button
 										size="sm"
 										className="btn btn-secondary"

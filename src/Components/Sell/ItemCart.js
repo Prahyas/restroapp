@@ -86,9 +86,7 @@ const ItemCart = ({ match, table, tables, setTables }) => {
 			<CardHeader>
 				{' '}
 				<div className="flexbetween">
-					<h5 className="classheaderspan">
-						Orders for : {match.params.tableName}
-					</h5>
+					<h5 className="classheaderspan">{match.params.tableName}</h5>
 
 					<h5> Ordered Items : {cart.length}</h5>
 				</div>

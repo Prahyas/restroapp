@@ -15,7 +15,6 @@ const Dashboard = () => {
 		<Fragment>
 			<h3 className="mb-1">Dashboard</h3>
 			<hr />
-
 			<div className="flexarround">
 				<div className="cardsinsidedashboard">
 					<Link to="/reports">
@@ -24,7 +23,6 @@ const Dashboard = () => {
 								{' '}
 								<h3 className="text-center"> {reports.length}</h3>
 							</CardTitle>
-
 							<h5 className="text-center">Total Sales</h5>
 						</Card>
 					</Link>
@@ -36,7 +34,6 @@ const Dashboard = () => {
 								{' '}
 								<h3 className="text-center"> {orders.length}</h3>
 							</CardTitle>
-
 							<h5 className="text-center">Active Orders</h5>
 						</Card>
 					</Link>
